@@ -1,0 +1,99 @@
+body {
+  font-family: sans-serif;
+  height: 100%;
+}
+
+html {
+  height: 100vh;
+  background-color: black;
+}
+
+h1 {
+  font-size: 72px;
+  text-shadow: 5px 5px black;
+}
+
+h2 {
+  font-size: 50px;
+  text-shadow: 4px 4px black;
+}
+
+p {
+  font-size: 32px;
+  text-shadow: 3px 3px black;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  font-size: 32px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form input {
+  width: 400px;
+}
+
+form button {
+  margin-top: 10px;
+  width: 200px;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+label {
+  display: block;
+}
+
+nav a {
+  display: inline-block;
+  margin: 1em;
+}
+
+form div {
+  margin: 1em;
+  display: inline-block;
+}
+
+#app {
+  height: 100%;
+}
+
+#app-container {
+  height: 100%;
+}
+
+#auth-screen-container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-img {
+  background-image: url('/grouppose.jpg');
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#auth-screen-foreground {
+  position: absolute;
+  background-color: transparent;
+  z-index: 50;
+  color: white;
+}
