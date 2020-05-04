@@ -21,6 +21,7 @@ class AuthScreen extends React.Component {
     event.preventDefault();
     this.props.logIn(this.state.password);
     this.setState({password: ''});
+    this.props.history.push('/board');
   }
 
   render() {
