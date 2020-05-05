@@ -3,7 +3,7 @@ const envPassword = require('../../server/pass');
 const initialState = false;
 
 const checkPassword = password => {
-  console.log(password)
+  console.log(envPassword)
   return password === envPassword;
 }
 
