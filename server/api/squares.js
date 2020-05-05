@@ -23,4 +23,15 @@ router.post('/', async (req, res, next) => {
   }
 })
 
+router.delete('/:squareId', async (req, res, next) => {
+  try {
+    const square = await Square.findByPk(req.params.squareId);
+    await square.destroy();
+    res.sendStatus(204);
+  } 
+  catch (error) {
+    next(error);
+  }
+})
+
 module.exports = router;

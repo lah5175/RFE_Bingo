@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { getSquares, addSquareThunk } from '../store';
+import { getSquares, addSquareThunk, deleteSquareThunk } from '../store';
 
 class AddSquare extends React.Component {
   constructor() {
@@ -12,6 +12,7 @@ class AddSquare extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +36,10 @@ class AddSquare extends React.Component {
     })
   }
 
+  handleDelete(squareId) {
+    this.props.deleteSquare(squareId);
+  }
+
   render() {
     return (
       <div id="add-container">
@@ -54,7 +59,14 @@ class AddSquare extends React.Component {
         <div id="all-squares">
           {
             this.props.squares.length
-            ? this.props.squares.map((square, idx) => <div key={`s${idx}`}><p>{square.content}</p></div>)
+            ? this.props.squares.map((square, idx) => {
+              return (
+                <div key={`s${idx}`} className="square-line">
+                  <p>{square.content}</p>
+                  <button type="button" onClick={() => this.handleDelete(square.id)}>Delete</button>
+                </div>
+              )
+            })
             : <div>No content</div>
           }
         </div>
@@ -69,7 +81,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getSquares: () => dispatch(getSquares()),
-  addSquare: square => dispatch(addSquareThunk(square))
+  addSquare: square => dispatch(addSquareThunk(square)),
+  deleteSquare: square => dispatch(deleteSquareThunk(square))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddSquare);

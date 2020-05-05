@@ -6,6 +6,7 @@ const initialState = [];
 
 const ALL_SQUARES = 'ALL_SQUARES';
 const ADD_SQUARE = 'ADD_SQUARE';
+const DELETE_SQUARE = 'DELETE_SQUARE';
 
 // ACTION CREATORS
 
@@ -16,6 +17,11 @@ const allSquares = squares => ({
 
 const addSquare = square => ({
   type: ADD_SQUARE,
+  square
+})
+
+const deleteSquare = square => ({
+  type: DELETE_SQUARE,
   square
 })
 
@@ -41,6 +47,16 @@ export const addSquareThunk = square => async dispatch => {
   }
 }
 
+export const deleteSquareThunk = squareId => async dispatch => {
+  try {
+    await axios.delete(`/api/squares/${squareId}`);
+    dispatch(deleteSquare(squareId));
+  } 
+  catch (error) {
+    console.error(error);
+  }
+}
+
 // REDUCER
 
 const reducer = (state=initialState, action) => {
@@ -49,6 +65,8 @@ const reducer = (state=initialState, action) => {
       return action.squares;
     case ADD_SQUARE:
       return [...state, action.square];
+    case DELETE_SQUARE:
+      return state.filter(sq => sq.id !== action.square);
     default:
       return state;
   }

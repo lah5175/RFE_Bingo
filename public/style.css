@@ -186,8 +186,17 @@ form div {
   margin: 10px;
 }
 
-#all-squares p:hover {
+.square-line:hover {
   background-color: lavender;
+}
+
+.square-line {
+  display: flex;
+  align-items: center;
+}
+
+.square-line button {
+  height: 20px;
 }
 
 #board {
@@ -233,10 +242,25 @@ form div {
   flex-direction: column;
   align-items: center;
   padding-bottom: 20px;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
 }
 
 .toggled {
   background-color: lightgreen;
+}
+
+.board-square:hover {
+  background-color: lightgray;
+}
+
+#board-container .toggled:hover {
+  background-color: #68bd68;
 }
 
 #add-container h1, #board-container h1 {
