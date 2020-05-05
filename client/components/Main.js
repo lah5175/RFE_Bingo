@@ -8,9 +8,11 @@ const Main = props => {
   return (
     <div id="main-container">
       <Navbar />
+      <div className="background-img" />
 
-      <Route exact path="/board" component={Board} />
-      <Route exact path="/board/add" component={AddSquare} />
+      <Route exact path="/" component={Board} />
+      <Route path="/board" component={Board} />
+      <Route exact path="/add" component={AddSquare} />
     </div>
   )
 }

@@ -36,6 +36,7 @@ class Board extends React.Component {
     board.push(temp);
 
     this.props.setBoard(board);
+    this.setState({victorious: false});
   }
 
   async toggleSquare(event) {
@@ -43,15 +44,15 @@ class Board extends React.Component {
     this.checkVictory();
   }
 
+  // eslint-disable-next-line complexity
+  checkVictory() {
   // %5 gives the column number
   // /5 gives the row number
 
   // Diagonal conditions are:
   // UL to DR: row = col
   // DL to UR: row + col = 4
-
-  // eslint-disable-next-line complexity
-  checkVictory() {
+    
     const rows = {
       '0': 0,
       '1': 0,
@@ -97,8 +98,9 @@ class Board extends React.Component {
     return (
       <div id="board-container">
         <h1>It's Time for RFE Raid Bingo!</h1> 
+        <button type="button" onClick={this.createBoard}>Generate New Board</button>
         <div id="board">
-          <div id="bingo-header">BINGO</div>
+          <div id="bingo-header">{this.state.victorious? 'CONGRATULATIONS!' : 'BINGO'}</div>
           {
             this.props.board.length && this.props.board.map((sq, idx) => {
               return (
@@ -113,7 +115,6 @@ class Board extends React.Component {
             })
           }
         </div>
-        {this.state.victorious && <div>VICTORY!</div>}
       </div>
     )
   }

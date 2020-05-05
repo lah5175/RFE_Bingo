@@ -39,7 +39,6 @@ class AddSquare extends React.Component {
     return (
       <div id="add-container">
         <h1>Add New Squares</h1>
-        <h2>New events may show up on future randomized boards!</h2>
 
         <form id="add-square-form" onSubmit={this.handleSubmit}>
           <div>

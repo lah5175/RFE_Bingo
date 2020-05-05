@@ -10,15 +10,16 @@ class Routes extends React.Component {
   }
 
   render() {
-    return (
-      <Switch>
-        <Route exact path="/" component={AuthScreen} />
-        {
-          this.props.loggedIn &&
-          <Route path="/board" component={Main} />
-        }
-      </Switch>
-    )
+    if (this.props.loggedIn) {
+      return (
+        <Route path="/" component={Main} />
+      )
+    }
+    else {
+      return (
+        <Route path="/" component={AuthScreen} />
+      )
+    }
   }
 }
 

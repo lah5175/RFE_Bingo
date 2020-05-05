@@ -1,6 +1,6 @@
 const {SECRET_PASSWORD} = require('../../secrets');
 
-const initialState = true;
+const initialState = false;
 
 const checkPassword = password => {
   const envPassword = process.env.PASSWORD ? process.env.PASSWORD : SECRET_PASSWORD;

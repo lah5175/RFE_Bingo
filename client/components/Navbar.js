@@ -5,7 +5,7 @@ const Navbar = props => {
   return (
     <div id="navbar">
       <NavLink to="/board">Board</NavLink>
-      <NavLink to="/board/add">Add Squares</NavLink>
+      <NavLink to="/add">Add Squares</NavLink>
     </div>
   )
 }
