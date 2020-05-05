@@ -1188,6 +1188,7 @@ var envPassword = __webpack_require__(/*! ../../server/pass */ "./server/pass.js
 var initialState = false;
 
 var checkPassword = function checkPassword(password) {
+  console.log(envPassword);
   return password === envPassword;
 };
 

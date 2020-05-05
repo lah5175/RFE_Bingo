@@ -12,7 +12,19 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 const socketio = require("socket.io");
 
-module.exports = app;
+require('dotenv').config();
+const {SECRET_PASSWORD} = require('../secrets');
+
+let pass;
+
+if (process.env.NODE_ENV === "production") {
+  pass = process.env.PASSWORD;
+}
+else {
+  pass = SECRET_PASSWORD;
+}
+
+module.exports = {app, pass};
 
 // This is a global Mocha hook, used for resource cleanup.
 // Otherwise, Mocha v4+ never quits after tests.
@@ -20,14 +32,6 @@ if (process.env.NODE_ENV === "test") {
   after("close the session store", () => sessionStore.stopExpiringSessions());
 }
 
-/**
- * In your development environment, you can keep all of your
- * app's secret API keys in a file called `secrets.js`, in your project
- * root. This file is included in the .gitignore - it will NOT be tracked
- * or show up on Github. On your production server, you can add these
- * keys as environment variables, so that they can still be read by the
- * Node process on process.env
- */
 if (process.env.NODE_ENV !== "production") require("../secrets");
 
 const createApp = () => {
@@ -40,38 +44,6 @@ const createApp = () => {
 
   // compression middleware
   app.use(compression());
-
-  // session middleware with passport
-  // app.use(
-  //   session({
-  //     secret: process.env.SESSION_SECRET || "a wildly insecure secret",
-  //     store: new SequelizeStore({
-  //       db: db
-  //     }),
-  //     resave: false,
-  //     saveUninitialized: false
-  //   })
-  // );
-
-  // app.use(passport.initialize());
-  // app.use(passport.session());
-
-  // passport.serializeUser((user, done) => {
-  //   try {
-  //     done(null, user.id);
-  //   } catch (error) {
-  //     done(error);
-  //   }
-  // });
-
-  // passport.deserializeUser(async (id, done) => {
-  //   try {
-  //     const user = await User.findByPk(id);
-  //     done(null, user);
-  //   } catch (error) {
-  //     done(error);
-  //   }
-  // });
 
   // auth and api routes
   // app.use("/auth", require("./auth"));
