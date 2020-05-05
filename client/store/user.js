@@ -1,26 +1,30 @@
-const envPassword = require('../../server/pass');
+import axios from "axios";
 
 const initialState = false;
 
-const checkPassword = password => {
-  return password === envPassword;
-}
+const LOG_IN = "LOG_IN";
 
-const LOG_IN = 'LOG_IN';
+export const logIn = () => ({
+  type: LOG_IN
+});
 
-export const logIn = password => ({
-  type: LOG_IN,
-  password
-})
+export const checkPassword = password => async dispatch => {
+  try {
+    const { data } = await axios.get("/api/pass");
+    if (password === data) dispatch(logIn());
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-const reducer = (state=initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case LOG_IN: {
-      return checkPassword(action.password);
+      return true;
     }
     default:
       return state;
   }
-}
+};
 
 export default reducer;

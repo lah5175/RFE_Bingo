@@ -1,27 +1,27 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {logIn} from '../store';
+import React from "react";
+import { connect } from "react-redux";
+import { checkPassword } from "../store";
 
 class AuthScreen extends React.Component {
   constructor() {
     super();
     this.state = {
-      password: ''
-    }
+      password: ""
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({password: event.target.value});
+    this.setState({ password: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     this.props.logIn(this.state.password);
-    this.setState({password: ''});
-    this.props.history.push('/board');
+    this.setState({ password: "" });
+    this.props.history.push("/board");
   }
 
   render() {
@@ -34,26 +34,31 @@ class AuthScreen extends React.Component {
           <h2>Please enter the password to get started.</h2>
 
           <form id="auth-form" onSubmit={this.handleSubmit}>
-            <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
+            <input
+              type="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
             <button type="submit">Submit</button>
           </form>
 
           <p>
-            Please note that this site is only for RFE raid members at this time as the database is currently
-            very limited on space. Sorry!
+            Please note that this site is only for RFE raid members at this time
+            as the database is currently very limited on space. Sorry!
           </p>
         </div>
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = state => ({
   loggedIn: state.user
-})
+});
 
 const mapDispatchToProps = dispatch => ({
-  logIn: password => dispatch(logIn(password))
-})
+  logIn: password => dispatch(checkPassword(password))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthScreen);
