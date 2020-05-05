@@ -1,3 +1,4 @@
+require('dotenv').config();
 const {SECRET_PASSWORD} = require('../../secrets');
 
 const initialState = false;
