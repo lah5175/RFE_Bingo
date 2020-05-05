@@ -1,10 +1,8 @@
-require('dotenv').config();
-const {SECRET_PASSWORD} = require('../../secrets');
+const envPassword = require('../../server/pass');
 
 const initialState = false;
 
 const checkPassword = password => {
-  const envPassword = process.env.PASSWORD ? process.env.PASSWORD : SECRET_PASSWORD;
   return password === envPassword;
 }
 
