@@ -13,26 +13,26 @@ html {
 }
 
 h1 {
-  font-size: 72px;
-}
-
-h2 {
   font-size: 50px;
 }
 
-p {
+h2 {
   font-size: 32px;
+}
+
+p {
+  font-size: 22px;
 }
 
 a {
   text-decoration: none;
-  font-size: 32px;
+  font-size: 20px;
   color: white;
   margin: 20px;
 }
 
 input {
-  font-size: 32px;
+  font-size: 20px;
 }
 
 #auth-form {
@@ -42,19 +42,19 @@ input {
 }
 
 #auth-form input {
-  width: 400px;
+  width: 300px;
 }
 
 #auth-form button {
   margin-top: 10px;
   width: 200px;
-  font-size: 32px;
+  font-size: 20px;
   cursor: pointer;
 }
 
 label {
   display: block;
-  font-size: 32px;
+  font-size: 22px;
 }
 
 form div {
@@ -82,15 +82,15 @@ form div {
 }
 
 #auth-screen-container h1 {
-  text-shadow: 5px 5px black;
-}
-
-#auth-screen-container h2 {
   text-shadow: 4px 4px black;
 }
 
-#auth-screen-container p {
+#auth-screen-container h2 {
   text-shadow: 3px 3px black;
+}
+
+#auth-screen-container p {
+  text-shadow: 2px 2px black;
 }
 
 .background-img {
@@ -114,7 +114,7 @@ form div {
 #navbar {
   background-color: navy;
   width: 100%;
-  height: 80px;
+  height: 60px;
   display: flex;
   justify-content: flex-end;
 }
@@ -146,7 +146,7 @@ form div {
 }
 
 #add-square-form p {
-  font-size: 20px;
+  font-size: 14px;
 }
 
 #add-square-form div{
@@ -155,17 +155,17 @@ form div {
 }
 
 #add-square-form input {
-  margin-left: 50px;
-  margin-right: 30px;
-  width: 800px;
+  margin-left: 30px;
+  margin-right: 10px;
+  width: 500px;
 }
 
 #add-square-form button {
   width: 200px;
-  height: 50px;
-  font-size: 32px;
-  margin-top: 50px;
-  margin-bottom: 100px;
+  height: 30px;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 50px;
 }
 
 #all-squares {
@@ -179,4 +179,52 @@ form div {
 
 #all-squares p:hover {
   background-color: lavender;
+}
+
+#board {
+  border: 2px solid black;
+  display: inline-grid;
+  grid-template-columns: auto auto auto auto auto;
+  column-gap: 0px;
+  margin-top: 30px;
+}
+
+#bingo-header {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  text-align: center;
+  font-size: 32px;
+  border: 1px solid black;
+  width: 100%;
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box; 
+  padding: 10px;
+}
+
+.board-square {
+  border: 1px solid black;
+  height: 120px;
+  width: 120px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box; 
+  padding: 20px;
+}
+
+#board-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.toggled {
+  background-color: lightgreen;
 }

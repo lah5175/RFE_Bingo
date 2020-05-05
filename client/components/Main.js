@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
 import Navbar from './Navbar';
-import Board from './board';
+import Board from './Board';
 import AddSquare from './AddSquare';
 
 const Main = props => {
