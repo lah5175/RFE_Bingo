@@ -15,7 +15,7 @@ router.get('/', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   try {
     const [newSquare, created] = await Square.findOrCreate({where: {content: req.body.content}});
-    if (created) res.sendStatus(201);
+    if (created) res.status(201).json(newSquare);
     else res.sendStatus(409);
   } 
   catch (error) {

@@ -33,7 +33,7 @@ class AuthScreen extends React.Component {
           <h1>Welcome to RFE Bingo!</h1>
           <h2>Please enter the password to get started.</h2>
 
-          <form onSubmit={this.handleSubmit}>
+          <form id="auth-form" onSubmit={this.handleSubmit}>
             <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
             <button type="submit">Submit</button>
           </form>

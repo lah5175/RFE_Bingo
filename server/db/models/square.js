@@ -5,8 +5,9 @@ const Square = db.define('square', {
   content: {
     type: Sequelize.STRING,
     allowNull: false,
+    unique: true,
     validate: {
-      notEmpty: true
+      notEmpty: true,
     }
   }
 })

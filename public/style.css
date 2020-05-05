@@ -2,26 +2,26 @@ body {
   font-family: sans-serif;
   height: 100%;
   margin: 0px;
+  overflow: auto;
 }
 
 html {
-  height: 100vh;
+  height: 100%;
+  min-height: 100%;
   background-color: black;
+  overflow: auto;
 }
 
 h1 {
   font-size: 72px;
-  text-shadow: 5px 5px black;
 }
 
 h2 {
   font-size: 50px;
-  text-shadow: 4px 4px black;
 }
 
 p {
   font-size: 32px;
-  text-shadow: 3px 3px black;
 }
 
 a {
@@ -35,17 +35,17 @@ input {
   font-size: 32px;
 }
 
-form {
+#auth-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-form input {
+#auth-form input {
   width: 400px;
 }
 
-form button {
+#auth-form button {
   margin-top: 10px;
   width: 200px;
   font-size: 32px;
@@ -54,6 +54,7 @@ form button {
 
 label {
   display: block;
+  font-size: 32px;
 }
 
 form div {
@@ -67,6 +68,7 @@ form div {
 
 #app-container {
   height: 100%;
+  overflow: auto;
 }
 
 #auth-screen-container {
@@ -77,6 +79,18 @@ form div {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#auth-screen-container h1 {
+  text-shadow: 5px 5px black;
+}
+
+#auth-screen-container h2 {
+  text-shadow: 4px 4px black;
+}
+
+#auth-screen-container p {
+  text-shadow: 3px 3px black;
 }
 
 .background-img {
@@ -110,10 +124,59 @@ form div {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: auto;
 }
 
 #board-container, #add-container {
   background-color: white;
   width: 70%;
   height: 100%;
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box; 
+  padding: 100px;
+  padding-top: 50px;
+  overflow: auto;
+}
+
+#add-square-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#add-square-form p {
+  font-size: 20px;
+}
+
+#add-square-form div{
+  display: flex;
+  align-items: center;
+}
+
+#add-square-form input {
+  margin-left: 50px;
+  margin-right: 30px;
+  width: 800px;
+}
+
+#add-square-form button {
+  width: 200px;
+  height: 50px;
+  font-size: 32px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+#all-squares {
+  height: auto;
+  overflow: visible;
+}
+
+#all-squares p {
+  margin: 10px;
+}
+
+#all-squares p:hover {
+  background-color: lavender;
 }
